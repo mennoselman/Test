@@ -11,6 +11,7 @@ import platform
 import time
 
 
+# In[3]:
 def init_phantomjs_driver(*args, **kwargs):
 
     webdriver.DesiredCapabilities.PHANTOMJS['phantomjs.page.settings.userAgent'] = 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36'
@@ -23,7 +24,7 @@ def init_phantomjs_driver(*args, **kwargs):
 class Crawler():
     def __init__(self):
 
-        self.driver = init_phantomjs_driver(executable_path='driver/phantomjs.exe')
+        self.driver = init_phantomjs_driver(executable_path='driver/phantomjs')
 
         self.driver.implicitly_wait(10)  # seconds
         self.driver.set_page_load_timeout(30)
