@@ -11,7 +11,6 @@ import platform
 import time
 
 
-# In[3]:
 def init_phantomjs_driver(*args, **kwargs):
 
     webdriver.DesiredCapabilities.PHANTOMJS['phantomjs.page.settings.userAgent'] = 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36'
@@ -24,7 +23,7 @@ def init_phantomjs_driver(*args, **kwargs):
 class Crawler():
     def __init__(self):
 
-        self.driver = init_phantomjs_driver(executable_path='driver/phantomjs')
+        self.driver = init_phantomjs_driver(executable_path='driver/phantomjs.exe')
 
         self.driver.implicitly_wait(10)  # seconds
         self.driver.set_page_load_timeout(30)
@@ -36,7 +35,7 @@ class Crawler():
         self.driver.get("https://www.ah.nl/producten")
         WebDriverWait(self.driver, timeout=30).until(
          lambda x: x.find_element_by_xpath("//div[@class='lane row product-category-navigation-lane  product-category-navigation-lane--ah']"))
-        page_source = browser.page_source
+        page_source = self.driver.page_source
         print(page_source)
         #self.driver.save_screenshot('check.png')
 
