@@ -23,7 +23,7 @@ def init_phantomjs_driver(*args, **kwargs):
 class Crawler():
     def __init__(self):
 
-        self.driver = init_phantomjs_driver(executable_path='driver/phantomjs.exe')
+        self.driver = init_phantomjs_driver(executable_path='driver/phantomjs')
 
         self.driver.implicitly_wait(10)  # seconds
         self.driver.set_page_load_timeout(30)
