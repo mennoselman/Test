@@ -46,4 +46,5 @@ class Crawler():
         except:
             self.driver.quit()
 
+Crawler().quit()
 crawler = Crawler()
